@@ -56,16 +56,16 @@ RUN rm index.html
 
 # composer and packages layer
 RUN curl -sS https://getcomposer.org/installer | php
-COPY composer.json /var/www/html
+#COPY composer.json /var/www/html
 RUN php composer.phar install --no-dev --no-autoloader
 
 # skosmos layer
-COPY . /var/www/html
+#COPY . /var/www/html
 RUN php composer.phar install --no-dev
 
 
 # Configure Skosmos
-COPY dockerfiles/config/config-docker.ttl /var/www/html/config.ttl
+#COPY dockerfiles/config/config-docker.ttl /var/www/html/config.ttl
 
 HEALTHCHECK --interval=5s --timeout=3s --retries=3 CMD curl -f http://localhost || exit 1
 
