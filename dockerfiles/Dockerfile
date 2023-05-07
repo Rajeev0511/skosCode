@@ -40,7 +40,7 @@ ENV LANG=en_US.UTF-8
 # timezone
 RUN sed -i 's/;date.timezone =/date.timezone = "UTC"/g' /etc/php/7.4/apache2/php.ini
 
-COPY dockerfiles/config/000-default.conf /etc/apache2/sites-available/000-default.conf
+#COPY dockerfiles/config/000-default.conf /etc/apache2/sites-available/000-default.conf
 
 RUN a2enmod rewrite
 RUN a2enmod expires
